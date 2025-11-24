@@ -20,12 +20,9 @@ This trip planner uses **two servers**:
 ```bash
 # Install Zypher and dependencies for Deno
 deno install
-
-# Install Next.js and npm dependencies
-npm install
 ```
 
-### Step 2: Start the Zypher Server and Next.js Server
+### Step 2: Start the Zypher Server
 
 Open a **new terminal** and run:
 

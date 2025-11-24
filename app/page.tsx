@@ -68,7 +68,7 @@ export default function Home() {
         onClose={() => setShowSettings(false)}
         apiKeys={apiKeys}
         onSave={saveApiKeys}
-        isFirstTime={isFirstTime}
+        isFirstTime={isFirstTime && !hasAllKeys()}
       />
 
       {/* Header */}

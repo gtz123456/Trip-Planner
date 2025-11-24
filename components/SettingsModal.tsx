@@ -44,7 +44,7 @@ export default function SettingsModal({
     <Dialog.Root open={isOpen} onOpenChange={isFirstTime ? undefined : onClose}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 animate-fadeIn" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-lg bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl p-8 opacity-0 animate-scaleIn">
+        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-lg bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl p-8 animate-scaleIn">
           {!isFirstTime && (
             <Dialog.Close className="absolute top-4 right-4 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
               <X className="w-5 h-5 text-zinc-600 dark:text-zinc-400" />
