@@ -77,7 +77,7 @@ Important:
 - Ensure all JSON is valid and properly formatted
 - Include 3-8 destinations depending on trip duration
 - Make prices realistic for the location
-- CRITICAL: Return ONLY the JSON object with NO additional text. The response must start with { and end with }`;
+- CRITICAL: Return ONLY the JSON object with NO additional text!!!!!!! The response must start with { and end with }!!!!!!! Even if the toolcall fails, return only the JSON object!!!!!!!`;
 
 async function planTrip(request: TripPlanRequest): Promise<any> {
   try {

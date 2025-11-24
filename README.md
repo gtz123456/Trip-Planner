@@ -15,14 +15,21 @@ This trip planner uses **two servers**:
   - Anthropic API
   - Firecrawl API
 
-### Step 1: Install Deno Dependencies
+### Step 1: Install Deno Dependencies and npm Dependencies
 
 ```bash
 # Install Zypher and dependencies for Deno
 deno install
+
+# Install npm dependencies
+npm install
 ```
 
-### Step 2: Start the Zypher Server
+### Step 2: Select your LLM model
+
+Open `zypher-server.ts` and set your LLM model at line 116 eg. "claude-3-5-haiku-20241022", "claude-sonnet-4-20250514"
+
+### Step 3: Start the Zypher Server
 
 Open a **new terminal** and run:
 
@@ -37,7 +44,7 @@ You should see:
 💚 Health check: http://localhost:8000/health
 ```
 
-### Step 3: Start the Next.js Server
+### Step 4: Start the Next.js Server
 
 In your **original terminal**, the Next.js dev server should already be running:
 
@@ -47,7 +54,7 @@ npm run dev
 
 If not, start it with the command above.
 
-### Step 4: Use the App
+### Step 5: Use the App
 
 1. Open http://localhost:3000 in your browser
 2. Enter your API keys in the settings modal

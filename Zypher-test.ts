@@ -5,6 +5,8 @@ import {
 } from "@corespeed/zypher";
 import { eachValueFrom } from "rxjs-for-await";
 
+Deno.env.set("HOME", Deno.cwd());
+
 // Helper function to safely get environment variables
 function getRequiredEnv(name: string): string {
   const value = Deno.env.get(name);
