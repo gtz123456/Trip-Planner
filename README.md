@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zypher Trip Planner - Setup Instructions
 
-## Getting Started
+## Running the Application
 
-First, run the development server:
+This trip planner uses **two servers**:
+1. **Deno Server** (Port 8000) - Runs the Zypher AI agent
+2. **Next.js Server** (Port 3000) - Serves the web interface
+
+### Prerequisites
+
+- [Deno 2.0+](https://deno.land/manual/getting_started/installation) installed
+- Node.js and npm installed
+- API Keys:
+  - Google Maps API
+  - Anthropic API
+  - Firecrawl API
+
+### Step 1: Install Deno Dependencies
+
+```bash
+# Install Zypher and dependencies for Deno
+deno install
+```
+
+### Step 2: Start the Zypher Server
+
+Open a **new terminal** and run:
+
+```bash
+deno run --allow-all zypher-server.ts
+```
+
+You should see:
+```
+🚀 Zypher server running on http://localhost:8000
+📍 Trip planning API: http://localhost:8000/api/plan-trip
+💚 Health check: http://localhost:8000/health
+```
+
+### Step 3: Start the Next.js Server
+
+In your **original terminal**, the Next.js dev server should already be running:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+If not, start it with the command above.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Step 4: Use the App
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Open http://localhost:3000 in your browser
+2. Enter your API keys in the settings modal
+3. Start planning trips!
 
-## Learn More
+## How It Works
 
-To learn more about Next.js, take a look at the following resources:
+```
+User Browser (Port 3000)
+    ↓
+Next.js API Route (/api/plan-trip)
+    ↓
+Deno Zypher Server (Port 8000)
+    ↓
+Zypher AI Agent → Anthropic Claude + Firecrawl
+    ↓
+Trip Plan JSON
+    ↓
+Display with Google Maps
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## TODOs
+- [ ] Add Google Maps MCP to zypher-server.ts
+- [ ] optizimize routes and calculate total distance and time with google maps mcp, instead of generating with LLM
+- [ ] force json mode to fix not valid json response
